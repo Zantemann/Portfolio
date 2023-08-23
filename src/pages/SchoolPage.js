@@ -3,21 +3,21 @@ import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
-import { timelineData } from '../data/timelineData';
+import { courseData } from '../data/courseData';
 import './Timeline.css';
 import './TitleBar.css';
 
-const Timeline = () => {
+const SchoolPage = () => {
   return (
     <div className='timeline'>
       <div className='title'>
-        <h2>Timeline</h2>
+        <h2>Programming courses</h2>
       </div>
       <VerticalTimeline>
-        {timelineData.map((element) => {
+        {courseData.map((element) => {
           return (
             <VerticalTimelineElement
-              key={element.title}
+              key={element.name}
               date={element.date}
               dateClassName="date"
             >
@@ -36,4 +36,4 @@ const Timeline = () => {
   );
 };
 
-export default Timeline;
+export default SchoolPage;

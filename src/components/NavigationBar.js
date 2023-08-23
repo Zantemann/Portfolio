@@ -17,7 +17,7 @@ const NavigationBar = () => {
 
   const scrollToSection = sectionName => {
     scroller.scrollTo(sectionName, {
-      spy: true, smooth: 'easeInOutQuart', offset:-10, duration: 500
+      spy: true, smooth: 'easeInOutQuart', offset:-100, duration: 500
     });
   };
 
@@ -25,9 +25,23 @@ const NavigationBar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const goToHome = (event) => {
+    event.preventDefault();
+    scroller.scrollTo('home', {
+      spy: true, smooth: 'easeInOutQuart', offset:-10, duration: 500
+    });
+
+    // Update the URL without a full page reload
+    window.history.pushState(null, null, '/');
+  };
+
   return (
     <div className='header'>
       <nav className={`navigationbar ${isMenuOpen ? 'open' : ''}`}>
+        <a href='#' onClick={goToHome} className='logo'>
+          <img src='/vectors/Ora.svg' alt='Logo' style={{ height: '50px' }} />
+        </a>
+
         <div className="hamburger" onClick={handleBurgerClick}>
           <div className="bar"></div>
           <div className="bar"></div>
@@ -36,10 +50,10 @@ const NavigationBar = () => {
 
         <ul className={'menu'}>
           <li className='item'>
-            <a href="#home" onClick={() => scrollToSection('home')}>Home</a>
+            <a href="#timeline" onClick={() => scrollToSection('timeline')}>Timeline</a>
           </li>
           <li className='item'>
-            <a href="#timeline" onClick={() => scrollToSection('timeline')}>Timeline</a>
+            <a href="#courses" onClick={() => scrollToSection('courses')}>Courses</a>
           </li>
         </ul>
       </nav>

@@ -5,8 +5,7 @@ import { Element } from 'react-scroll';
 import NavigationBar from './components/NavigationBar';
 import HomePage from './pages/HomePage';
 import Timeline from './pages/Timeline';
-
-
+import SchoolPage from './pages/SchoolPage';
 
 const App = () => {
 
@@ -18,6 +17,9 @@ const App = () => {
       </Element>
       <Element name='timeline'>
         <Timeline />
+      </Element>
+      <Element name='courses'>
+        <SchoolPage />
       </Element>
     </div>
   );

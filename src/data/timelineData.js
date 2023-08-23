@@ -13,7 +13,7 @@ export const timelineData = [
     description: 'yliopisto jee'
   },
   {
-    title: 'University',
+    title: 'University1',
     date: '2023',
     icon: 'school',
     description: 'yliopisto jee'

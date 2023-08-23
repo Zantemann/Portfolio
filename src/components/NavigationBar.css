@@ -22,6 +22,7 @@
   margin: 0;
   display: flex;
   gap: 20%;
+  align-items: center;
 }
 
 .item a {
@@ -30,6 +31,14 @@
   transition: color 0.3s;
 }
 
+.logo img {
+  transition: filter 0.3s;
+  padding-right: 50px;
+}
+
+.logo img:hover {
+  filter: invert(100%);
+}
 
 .item a:hover {
   color: black;
@@ -38,9 +47,15 @@
 @media (max-width: 768px) {
   .navigationbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
+  }
+
+  .logo img {
+    transition: filter 0.3s;
+    padding-left: 40px;
+    padding-right: 0;
   }
 
   .hamburger {

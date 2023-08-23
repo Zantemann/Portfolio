@@ -1,0 +1,14 @@
+.title {
+  height: 100px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  color: white;
+}

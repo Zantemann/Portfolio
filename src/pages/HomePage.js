@@ -13,8 +13,8 @@ const HomePage = () => {
           <h1>Santeri Ora</h1>
           <h2>No bullshit</h2>
           <div className='text'>
-            <p>Intense is an International Financial Planning company with offices in multiple jurisdictions all over the world.</p>
-            <p>I am John Doe, a senior advisor for an independently owned financial planning company called Intense.</p>
+            <p>I am Santeri Ora and I am hard working 21 year old math and progremming stundent from Tampere Finland</p>
+            <p>Check my story in this React + CSS page</p>
           </div>
         </div>
       </div>

@@ -50,10 +50,19 @@ const NavigationBar = () => {
 
         <ul className={'menu'}>
           <li className='item'>
+            <a href="#about" onClick={() => scrollToSection('about')}>About</a>
+          </li>
+          <li className='item'>
             <a href="#timeline" onClick={() => scrollToSection('timeline')}>Timeline</a>
           </li>
           <li className='item'>
             <a href="#courses" onClick={() => scrollToSection('courses')}>Courses</a>
+          </li>
+          <li className='item'>
+            <a href="#projects" onClick={() => scrollToSection('projects')}>Projects</a>
+          </li>
+          <li className='item'>
+            <a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a>
           </li>
         </ul>
       </nav>

@@ -1,0 +1,42 @@
+.about {
+  position: relative;
+  min-width: 250px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.logos img {
+  width: 100px;
+  height: auto;
+  margin: 5px;
+}
+
+.about-content h2 {
+  color: black;
+}

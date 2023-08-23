@@ -12,7 +12,7 @@ const HomePage = () => {
         <div className='content'>
           <h1>Santeri Ora</h1>
           <h2>No bullshit</h2>
-          <div className='text'>
+          <div className='home-text'>
             <p>I am Santeri Ora and I am hard working 21 year old math and progremming stundent from Tampere Finland</p>
             <p>Check my story in this React + CSS page</p>
           </div>

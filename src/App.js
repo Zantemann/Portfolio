@@ -3,6 +3,7 @@ import React from 'react';
 import { Element } from 'react-scroll';
 
 import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import Timeline from './pages/Timeline';
 import SchoolPage from './pages/SchoolPage';
@@ -33,6 +34,7 @@ const App = () => {
       <Element name='contact'>
         <ContactPage />
       </Element>
+      <Footer />
     </div>
   );
 };

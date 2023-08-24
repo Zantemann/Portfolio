@@ -1,0 +1,21 @@
+.footer {
+  height: 100px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 250px;
+}
+
+.footer img { 
+  height: 50px;
+}
+
+.footer .github-logo {
+  filter: invert(1);
+}
+
+.white-logo {
+  filter:  brightness(0) invert(1);
+}

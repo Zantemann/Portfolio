@@ -31,7 +31,9 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  min-width: 30%;
+  min-width: 350px;
+  height: 400px;
+
 }
 
 @media (max-width: 768px) {

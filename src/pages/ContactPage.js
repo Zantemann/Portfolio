@@ -16,7 +16,6 @@ const Contact = () => {
           <h4>Email: test@test.gmail.com</h4>
         </div>
         <div className='contact-form-container'>
-          <h2>Contact form</h2>
           <ContactForm />
         </div>
       </div>

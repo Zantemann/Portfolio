@@ -4,6 +4,8 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 
 import { courseData } from '../data/courseData';
+import { devLogos } from '../data/devLogos';
+
 import './Timeline.css';
 import './TitleBar.css';
 
@@ -17,17 +19,20 @@ const SchoolPage = () => {
         {courseData.map((element) => {
           return (
             <VerticalTimelineElement
-              key={element.name}
+              key={element.id}
               date={element.date}
               dateClassName="date"
+              icon={<img src={devLogos[element.icon]} style={{ padding: '6px', borderRadius: '50%' }} />}
             >
               <h3 className="vertical-timeline-element-title">
-                {element.title}
+                {element.title} ({element.credits} credits)
               </h3>
-              <h5 className="vertical-timeline-element-subtitle">
-                {element.location}
-              </h5>
               <p className="description">{element.description}</p>
+              <p>
+                <a href={element.url} target="_blank" rel="noopener noreferrer">
+                  {element.title}
+                </a>
+              </p>
             </VerticalTimelineElement>
           );
         })}

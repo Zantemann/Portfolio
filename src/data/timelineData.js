@@ -1,10 +1,9 @@
 export const timelineData = [
   {
-    title: 'School',
+    title: 'High School',
     date: '2022',
     icon: 'school',
     description: 'lukio, ok settiä'
-
   },
   {
     title: 'University',

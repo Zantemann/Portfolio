@@ -17,6 +17,5 @@ export const devLogos = {
 
 export const otherLogos = {
   github: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
-  gitlab: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg',
   linkedin: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg'
 };

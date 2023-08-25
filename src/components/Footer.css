@@ -16,6 +16,8 @@
   filter: invert(1);
 }
 
-.white-logo {
-  filter:  brightness(0) invert(1);
+
+
+img.github-logo:hover {
+  filter: invert(0);
 }

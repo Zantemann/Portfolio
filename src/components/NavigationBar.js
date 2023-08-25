@@ -5,6 +5,29 @@ import './NavigationBar.css';
 
 const NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = () => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY < lastScrollY) {
+        setShow(true);
+      } else {
+        setShow(false);
+      }
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
+
+      return () => {
+        window.removeEventListener('scroll', controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -17,7 +40,7 @@ const NavigationBar = () => {
 
   const scrollToSection = sectionName => {
     scroller.scrollTo(sectionName, {
-      spy: true, smooth: 'easeInOutQuart', offset:-100, duration: 500
+      spy: true, smooth: 'easeInOutQuart', duration: 500
     });
   };
 
@@ -28,7 +51,7 @@ const NavigationBar = () => {
   const goToHome = (event) => {
     event.preventDefault();
     scroller.scrollTo('home', {
-      spy: true, smooth: 'easeInOutQuart', offset:-10, duration: 500
+      spy: true, smooth: 'easeInOutQuart', duration: 500
     });
 
     // Update the URL without a full page reload
@@ -36,7 +59,7 @@ const NavigationBar = () => {
   };
 
   return (
-    <div className='header'>
+    <div className={`header ${!show && 'hidden'}`}>
       <nav className={`navigationbar ${isMenuOpen ? 'open' : ''}`}>
         <a href='#' onClick={goToHome} className='logo'>
           <img src='/vectors/Ora.svg' alt='Logo' style={{ height: '50px' }} />
@@ -53,7 +76,7 @@ const NavigationBar = () => {
             <a href="#about" onClick={() => scrollToSection('about')}>About</a>
           </li>
           <li className='item'>
-            <a href="#timeline" onClick={() => scrollToSection('timeline')}>Timeline</a>
+            <a href="#studies" onClick={() => scrollToSection('studies')}>Studies</a>
           </li>
           <li className='item'>
             <a href="#courses" onClick={() => scrollToSection('courses')}>Courses</a>

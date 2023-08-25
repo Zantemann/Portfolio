@@ -1,20 +1,15 @@
 export const timelineData = [
   {
     title: 'High School',
-    date: '2022',
+    date: '2017-2020',
     icon: 'school',
-    description: 'lukio, ok settiä'
+    location: 'F.E. Sillanpään lukio, Hämeenkyrö',
   },
   {
-    title: 'University',
-    date: '2023',
+    title: 'Math and data analysis (Bachelor of Natural Sciences and Master of Philosophy)',
+    date: '2021 - Current',
     icon: 'school',
-    description: 'yliopisto jee'
-  },
-  {
-    title: 'University1',
-    date: '2023',
-    icon: 'school',
-    description: 'yliopisto jee'
+    location: 'Tampere University',
+    description: 'Starting my third year of studies in mathematics and data analysis in September. Mathematics is my major, and I have chosen computer science as my minor. I am also planning to pursue a Master\'s degree in computer science.'
   },
 ];

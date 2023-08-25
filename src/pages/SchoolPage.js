@@ -5,6 +5,7 @@ import 'react-vertical-timeline-component/style.min.css';
 
 import { courseData } from '../data/courseData';
 import { devLogos } from '../data/devLogos';
+import { IoSchool } from 'react-icons/io5';
 
 import './Timeline.css';
 import './TitleBar.css';
@@ -22,7 +23,7 @@ const SchoolPage = () => {
               key={element.id}
               date={element.date}
               dateClassName="date"
-              icon={<img src={devLogos[element.icon]} style={{ padding: '6px', borderRadius: '50%' }} />}
+              icon={element.icon ? <img src={devLogos[element.icon]} style={{ padding: '8px', borderRadius: '50%' }} /> : <IoSchool style={{ color: 'white' }} /> }
             >
               <h3 className="vertical-timeline-element-title">
                 {element.title} ({element.credits} credits)

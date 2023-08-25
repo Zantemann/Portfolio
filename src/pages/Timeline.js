@@ -2,6 +2,7 @@ import React from 'react';
 
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import { IoSchool } from 'react-icons/io5';
 
 import { timelineData } from '../data/timelineData';
 import './Timeline.css';
@@ -11,7 +12,7 @@ const Timeline = () => {
   return (
     <div className='timeline'>
       <div className='title'>
-        <h2>Timeline</h2>
+        <h2>Studies</h2>
       </div>
       <VerticalTimeline>
         {timelineData.map((element) => {
@@ -20,6 +21,8 @@ const Timeline = () => {
               key={element.title}
               date={element.date}
               dateClassName="date"
+              iconStyle={{ color: 'white' }}
+              icon={<IoSchool />}
             >
               <h3 className="vertical-timeline-element-title">
                 {element.title}

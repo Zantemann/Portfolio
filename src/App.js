@@ -22,7 +22,7 @@ const App = () => {
       <Element name='about'>
         <AboutPage />
       </Element>
-      <Element name='timeline'>
+      <Element name='studies'>
         <Timeline />
       </Element>
       <Element name='courses'>

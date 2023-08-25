@@ -17,6 +17,7 @@
     "react-scroll": "^1.8.9",
     "react-tooltip": "^5.21.1",
     "react-vertical-timeline-component": "^3.6.0",
+    "typewriter-effect": "^2.20.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"
   },

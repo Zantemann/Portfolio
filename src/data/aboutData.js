@@ -1,0 +1,6 @@
+export const aboutData = {
+  text1: 'I am a hardworking and entrepreneurial university student actively seeking job opportunities alongside my studies at Tampere University. I am entering my third year of a Bachelor\'s program in Math and Data Analysis.',
+  text2: 'In my first year, I chose the mathematics of information technology as my major. However, programming quickly captured my interest and has since become a significant focus of mine. After completing my Bachelor\'s degree, my plan is to undertake a Master\'s degree in Computer Science.',
+  text3: 'I founded my own business three years ago that tells about my entrepreneurial attitude. I worked as an online retailer and creating my own product: DIY face mask from tested face mask fabric. Today, the company is closed and I focus fully on my studies, especially on programming.',
+  text4: 'I am looking for a junior position in programming for next spring/summer and alongside my studies. On this page, I have collected information about my skills, courses I have taken, and my projects.'
+};

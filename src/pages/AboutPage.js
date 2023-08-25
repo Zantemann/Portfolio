@@ -5,6 +5,7 @@ import { skillsData } from '../data/skillsData';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import StarRating from '../components/StarRating';
+import { aboutData } from '../data/aboutData';
 
 const AboutPage = () => {
   return (
@@ -13,9 +14,12 @@ const AboutPage = () => {
         <h2>About</h2>
       </div>
       <div className='about-content'>
+        <h2 className='info-title'>Santeri Ora</h2>
         <div className='info'>
-          <h2>moi</h2>
-          <p>I am Santeri Ora </p>
+          <p>{aboutData.text1}</p>
+          <p>{aboutData.text2}</p>
+          <p>{aboutData.text3}</p>
+          <p>{aboutData.text4}</p>
         </div>
         <div className='skills'>
           <h2>Skills</h2>

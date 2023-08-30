@@ -1,17 +1,31 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import fetchData  from '../firebase-config';
 import './TitleBar.css';
 import './ProjectsPage.css';
-import { projectsData } from '../data/projectsData';
 
 const ProjectsPage = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await fetchData('projects');
+        setProjects(data);
+      } catch (error) {
+        console.error('Error fetching projects data:', error);
+      }
+    };
+
+    getData();
+  }, []);
+
   return (
     <div className='projects'>
       <div className='title'>
         <h2>Projects</h2>
       </div>
       <div className='projects-container'>
-        {projectsData.map((element) => {
+        {projects.map((element) => {
           return (
             <div className='projectBox' key={element.title}>
               <div className='text'>

@@ -1,6 +1,5 @@
 import React from 'react';
 import './Footer.css';
-import { otherLogos } from '../data/devLogos';
 import { scroller } from 'react-scroll';
 
 const Footer = () => {
@@ -19,7 +18,7 @@ const Footer = () => {
         <img src='/vectors/Ora.svg' alt='Logo' style={{ height: '50px' }} />
       </a>
       <a href={'https://github.com/Zantemann'} target="_blank" rel="noopener noreferrer">
-        <img src={otherLogos['github']} className='github-logo' />
+        <img src={'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'} className='github-logo' />
       </a>
     </div>
   );

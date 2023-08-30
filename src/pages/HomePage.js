@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './HomePage.css';
 import Typewriter from 'typewriter-effect';
-import { otherLogos } from '../data/devLogos';
 
 const HomePage = () => {
   const [headerTyped, setHeaderTyped] = useState(false);
@@ -42,7 +41,7 @@ const HomePage = () => {
                 onInit={(typewriter) => {
                   typewriter
                     .start()
-                    .typeString('Welkome to my portfolio page!')
+                    .typeString('Welcome to my portfolio page!')
                     .pauseFor(1000)
                     .deleteAll()
                     .typeString('Feel free to check my story!')
@@ -57,7 +56,7 @@ const HomePage = () => {
         {headerTyped && (
           <div className='homepage-logos'>
             <a href={'https://github.com/Zantemann'} target="_blank" rel="noopener noreferrer">
-              <img src={otherLogos['github']} className='github-logo' />
+              <img src={'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'} className='github-logo' />
             </a>
           </div>
         )}

@@ -1,48 +1,77 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './AboutPage.css';
-import { devLogos } from '../data/devLogos';
-import { skillsData } from '../data/skillsData';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import StarRating from '../components/StarRating';
-import { aboutData } from '../data/aboutData';
+import fetchData  from '../firebase-config';
 
 const AboutPage = () => {
+  const [texts, setTexts] = useState([]);
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    const getTexts = async () => {
+      try {
+        const data = await fetchData('about');
+        setTexts(data);
+      } catch (error) {
+        console.error('Error fetching about data:', error);
+      }
+    };
+
+    const getSkills = async () => {
+      try {
+        const data = await fetchData('skills');
+        setSkills(data);
+      } catch (error) {
+        console.error('Error fetching skills data:', error);
+      }
+    };
+
+    getTexts();
+    getSkills();
+  }, []);
+
   return (
     <div className='about'>
       <div className='title'>
         <h2>About</h2>
       </div>
       <div className='about-content'>
-        <h2 className='info-title'>Santeri Ora</h2>
-        <div className='info'>
-          <p>{aboutData.text1}</p>
-          <p>{aboutData.text2}</p>
-          <p>{aboutData.text3}</p>
-          <p>{aboutData.text4}</p>
-        </div>
+        {texts.length === 0 ? (
+          <h2 className='info-title'>Loading...</h2>
+        ) : (
+          <div>
+            <h2 className='info-title'>Santeri Ora</h2>
+            <div className='info'>
+              {texts.map((text) => (
+                <p key={text.id}>{text.text}</p>
+              ))}
+            </div>
+          </div>
+        )}
         <div className='skills'>
           <h2>Skills</h2>
           <h4>Hover for review</h4>
           <div className='logos'>
-            {Object.entries(devLogos).map(([name, logoUrl], index) => (
+            {skills.map(((skill) => (
               <div
                 className='logo-container'
-                key={index}
+                key={skill.id}
               >
-                <a data-tooltip-id={`tooltip-${index}`}>
-                  <img src={logoUrl} alt={name} />
+                <a data-tooltip-id={`tooltip-${skill.id}`}>
+                  <img src={skill.icon} alt={name} />
                 </a>
-                <Tooltip id={`tooltip-${index}`} className='logo-info'>
-                  <h2>{skillsData[name]?.title}</h2>
-                  <p>{skillsData[name]?.description}</p>
+                <Tooltip id={`tooltip-${skill.id}`} className='logo-info'>
+                  <h2>{skill.title}</h2>
+                  <p>{skill.description}</p>
                   <div className='rating'>
                     <h3>Skill Rating</h3>
-                    <StarRating rating={skillsData[name]?.rating} />
+                    <StarRating rating={skill.rating} />
                   </div>
                 </Tooltip>
               </div>
-            ))}
+            )))}
           </div>
         </div>
       </div>

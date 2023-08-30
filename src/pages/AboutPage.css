@@ -25,7 +25,8 @@
   justify-content: center;
 }
 
-.about-content h2 {
+.info-title {
+  text-align: center;
   margin: 0;
   padding-bottom: 20px;
 }

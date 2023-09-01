@@ -31,15 +31,16 @@
 .submit {
   margin-top: 20px;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #FFD700;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  color: black;
 }
 
 .submit:hover {
-  background-color: #0056b3;
+  background-color: #CCAC00;
 }
 
 .contact-form textarea {

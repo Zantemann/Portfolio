@@ -12,19 +12,35 @@ import ContactPage from './pages/ContactPage';
 import { useInView } from 'react-intersection-observer';
 
 const App = () => {
+  const isMobile = window.innerWidth <= 768;
+
+  let rootMargin;
+  if (isMobile) {
+    rootMargin = '-100px';
+  } else {
+    rootMargin = '-200px';
+  }
+
   const sectionRefs = {
-    'about': useInView(),
-    'studies': useInView(),
-    'courses': useInView(),
-    'projects': useInView(),
-    'contact': useInView()
+    'about': useInView({ rootMargin: rootMargin }),
+    'studies': useInView({ rootMargin: rootMargin }),
+    'courses': useInView({ rootMargin: rootMargin }),
+    'projects': useInView({ rootMargin: rootMargin }),
+    'contact': useInView({ rootMargin: rootMargin })
   };
 
   const [visibleSection, setVisibleSection] = useState(null);
 
   useEffect(() => {
-    const currentlyVisibleSection = Object.keys(sectionRefs).find(section => sectionRefs[section].inView);
-    setVisibleSection(currentlyVisibleSection);
+    const updateVisibleSection = () => {
+      const currentlyVisibleSection = Object.keys(sectionRefs).find(section => sectionRefs[section].inView);
+      if (visibleSection !== currentlyVisibleSection) {
+        console.log(currentlyVisibleSection);
+        setVisibleSection(currentlyVisibleSection);
+      }
+    };
+
+    updateVisibleSection();
   }, [sectionRefs]);
 
   const [allowScroll, setAllowScroll] = useState(false);

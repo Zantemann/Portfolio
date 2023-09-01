@@ -4,22 +4,24 @@
 
 .image-container {
   overflow: hidden;
-  height: 800px;
-  width: 100%;
+  height: 600px;
   min-width: 250px;
+}
+
+.home-text {
+  color: #FFD700;
 }
 
 .image-background {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center;
+  background-position: right;
 }
 
 .content {
   position: absolute;
-  top: 25%;
-  left: 5%;
+  top: 40%;
   padding: 50px;
   color: white;
   min-height: 200px;
@@ -41,4 +43,31 @@
 
 .github-logo {
   filter: invert(1);
+}
+
+@media (max-width: 600px) {
+  .image-background {
+    background-position: 480px
+  }
+  
+  .homepage-logos {
+    padding: 20px;
+  }
+
+  .content {
+    top: 60%;
+    text-align: center;
+    padding: 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 400px) {
+  .image-background {
+    background-position: 390px
+  }
+
+  .content {
+    top: 50%
+  }
 }

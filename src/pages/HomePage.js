@@ -10,7 +10,7 @@ const HomePage = () => {
       <div className='image-container'>
         <div
           className='image-background'
-          style={{ backgroundImage: 'url(\'/images/homeImage.jpg\')' }}
+          style={{ backgroundImage: 'url(\'/images/homeImage3.jpg\')' }}
         />
         <div className='content'>
           <h1 className='content-header'>

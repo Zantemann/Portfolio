@@ -49,12 +49,14 @@
   filter: invert(100%);
 }
 
-.item a:hover {
-  color: black;
+.item.active a {
+  border-bottom: 2px solid white;
 }
 
-.item.active a {
-  color: black;
+@media (min-width: 769px) {
+  .item a:hover {
+    border-bottom: 2px solid white;
+  }
 }
 
 @media (max-width: 768px) {

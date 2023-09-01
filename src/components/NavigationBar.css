@@ -53,6 +53,10 @@
   color: black;
 }
 
+.item.active a {
+  color: black;
+}
+
 @media (max-width: 768px) {
   .navigationbar {
     display: flex;

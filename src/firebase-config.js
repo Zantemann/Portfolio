@@ -18,7 +18,6 @@ export const db = getFirestore(app);
 
 const fetchData = async (collectionName) => {
   try {
-    console.log();
     const itemsCollection = collection(db, collectionName);
     const itemsSnapshot = await getDocs(itemsCollection);
 

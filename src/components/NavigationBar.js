@@ -3,19 +3,21 @@ import { scroller } from 'react-scroll';
 
 import './NavigationBar.css';
 
-const NavigationBar = () => {
+// eslint-disable-next-line react/prop-types
+const NavigationBar = ({ allowScroll, visibleSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
   const controlNavbar = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && !isMenuOpen) {
       if (window.scrollY < lastScrollY) {
         setShow(true);
       } else {
         setShow(false);
       }
       setLastScrollY(window.scrollY);
+    } else {
+      setShow(true);
     }
   };
 
@@ -27,20 +29,22 @@ const NavigationBar = () => {
         window.removeEventListener('scroll', controlNavbar);
       };
     }
-  }, [lastScrollY]);
+  }, [lastScrollY, isMenuOpen]);
 
   useEffect(() => {
     const hash = window.location.hash;
-    if (hash) {
+    if (hash && allowScroll) {
       const sectionName = hash.substring(1);
-      scrollToSection(sectionName);
+
+      if(document.getSelection(sectionName)){
+        scrollToSection({ sectionName, offset: 100 });
+      }
     }
-  }, []);
+  }, [allowScroll]);
 
-
-  const scrollToSection = sectionName => {
+  const scrollToSection = ({ sectionName, offset = 0 }) => {
     scroller.scrollTo(sectionName, {
-      spy: true, smooth: 'easeInOutQuart', duration: 500
+      spy: true, smooth: 'easeInOutQuart', duration: 500, offset: offset
     });
   };
 
@@ -72,20 +76,20 @@ const NavigationBar = () => {
         </div>
 
         <ul className={'menu'}>
-          <li className='item'>
-            <a href="#about" onClick={() => scrollToSection('about')}>About</a>
+          <li className={`item ${(visibleSection === 'about') ? 'active' : ''}`}>
+            <a href="#about" onClick={() => scrollToSection({ sectionName: 'about' })}>About</a>
           </li>
-          <li className='item'>
-            <a href="#studies" onClick={() => scrollToSection('studies')}>Studies</a>
+          <li className={`item ${(visibleSection === 'studies') ? 'active' : ''}`}>
+            <a href="#studies" onClick={() => scrollToSection({ sectionName: 'studies' })}>Studies</a>
           </li>
-          <li className='item'>
-            <a href="#courses" onClick={() => scrollToSection('courses')}>Courses</a>
+          <li className={`item ${(visibleSection === 'courses') ? 'active' : ''}`}>
+            <a href="#courses" onClick={() => scrollToSection({ sectionName: 'courses' })}>Courses</a>
           </li>
-          <li className='item'>
-            <a href="#projects" onClick={() => scrollToSection('projects')}>Projects</a>
+          <li className={`item ${(visibleSection === 'projects') ? 'active' : ''}`}>
+            <a href="#projects" onClick={() => scrollToSection({ sectionName: 'projects' })}>Projects</a>
           </li>
-          <li className='item'>
-            <a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a>
+          <li className={`item ${(visibleSection === 'contact') ? 'active' : ''}`}>
+            <a href="#contact" onClick={() => scrollToSection({ sectionName: 'contact' })}>Contact</a>
           </li>
         </ul>
       </nav>

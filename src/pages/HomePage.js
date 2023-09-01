@@ -53,13 +53,11 @@ const HomePage = () => {
             </h2>
           )}
         </div>
-        {headerTyped && (
-          <div className='homepage-logos'>
-            <a href={'https://github.com/Zantemann'} target="_blank" rel="noopener noreferrer">
-              <img src={'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'} className='github-logo' />
-            </a>
-          </div>
-        )}
+        <div className='homepage-logos'>
+          <a href={'https://github.com/Zantemann'} target="_blank" rel="noopener noreferrer">
+            <img src={'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'} className='github-logo' />
+          </a>
+        </div>
       </div>
     </div>
   );

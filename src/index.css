@@ -8,3 +8,10 @@ body {
   font-size: 1.2rem;
   line-height: 1.2;
 }
+
+.info-title {
+  text-align: center;
+  margin: 0;
+  padding-bottom: 20px;
+  color: black;
+}

@@ -1,7 +1,6 @@
-import React from 'react';
-//import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { Element } from 'react-scroll';
-
+import fetchData from './firebase-config';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -10,29 +9,79 @@ import SchoolPage from './pages/SchoolPage';
 import ProjectsPage from './pages/ProjectsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import { useInView } from 'react-intersection-observer';
 
 const App = () => {
+  const sectionRefs = {
+    'about': useInView(),
+    'studies': useInView(),
+    'courses': useInView(),
+    'projects': useInView(),
+    'contact': useInView()
+  };
+
+  const [visibleSection, setVisibleSection] = useState(null);
+
+  useEffect(() => {
+    const currentlyVisibleSection = Object.keys(sectionRefs).find(section => sectionRefs[section].inView);
+    setVisibleSection(currentlyVisibleSection);
+  }, [sectionRefs]);
+
+  const [allowScroll, setAllowScroll] = useState(false);
+  const [data, setData] = useState({ about: [], skills: [], timelineItems: [], courses: [], projects: [] });
+
+  // Fetching data to components
+  useEffect(() => {
+    const fetchDataForAllSections = async () => {
+      const aboutData = await fetchData('about');
+      const skillsData = await fetchData('skills');
+      const timelineData = await fetchData('timeline');
+      const coursesData = await fetchData('courses');
+      const projectsData = await fetchData('projects');
+
+      setData({
+        about: aboutData,
+        skills: skillsData,
+        timelineItems: timelineData,
+        courses: coursesData,
+        projects: projectsData,
+      });
+      setAllowScroll(true);
+    };
+
+    fetchDataForAllSections();
+  }, []);
 
   return (
     <div>
-      <NavigationBar />
+      <NavigationBar allowScroll={allowScroll} visibleSection={visibleSection}/>
       <Element name='home'>
         <HomePage />
       </Element>
-      <Element name='about'>
-        <AboutPage />
+      <Element name='about' >
+        <div ref={sectionRefs['about'].ref}>
+          <AboutPage about={data.about} skills={data.skills}/>
+        </div>
       </Element>
       <Element name='studies'>
-        <Timeline />
+        <div ref={sectionRefs['studies'].ref}>
+          <Timeline timelineItems={data.timelineItems}/>
+        </div>
       </Element>
       <Element name='courses'>
-        <SchoolPage />
+        <div ref={sectionRefs['courses'].ref}>
+          <SchoolPage courses={data.courses}/>
+        </div>
       </Element>
       <Element name='projects'>
-        <ProjectsPage />
+        <div ref={sectionRefs['projects'].ref}>
+          <ProjectsPage projects={data.projects}/>
+        </div>
       </Element>
       <Element name='contact'>
-        <ContactPage />
+        <div ref={sectionRefs['contact'].ref}>
+          <ContactPage />
+        </div>
       </Element>
       <Footer />
     </div>

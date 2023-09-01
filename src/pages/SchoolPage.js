@@ -1,35 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { IoSchool } from 'react-icons/io5';
-import fetchData  from '../firebase-config';
 
 import './Timeline.css';
 import './TitleBar.css';
 
-const SchoolPage = () => {
-  const [courses, setCourses] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const data = await fetchData('courses');
-        setCourses(data);
-      } catch (error) {
-        console.error('Error fetching courses data:', error);
-      }
-    };
-
-    getData();
-  }, []);
-
+const SchoolPage = ({ courses }) => {
   return (
     <div className='timeline'>
       <div className='title'>
         <h2>Programming courses</h2>
       </div>
-      {!courses ? (
-        <p>Loading...</p>
+      {(courses.length === 0) ? (
+        <h2 className='info-title' style={{ padding: '40px' }}>Loading...</h2>
       ) : (
         <VerticalTimeline>
           {courses.map((element) => {

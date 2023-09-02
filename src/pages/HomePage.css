@@ -4,7 +4,7 @@
 
 .image-container {
   overflow: hidden;
-  height: 600px;
+  height: 560px;
   min-width: 250px;
 }
 
@@ -41,15 +41,11 @@
   height: 50px;
 }
 
-.github-logo {
-  filter: invert(1);
+.homepage-logos a {
+  margin-inline: 10px;
 }
 
 @media (max-width: 600px) {
-  .image-background {
-    background-position: 480px
-  }
-  
   .homepage-logos {
     padding: 20px;
   }
@@ -62,12 +58,18 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .image-background {
-    background-position: 390px
+    background-position: 450px;
   }
 
   .content {
     top: 50%
+  }
+}
+
+@media (max-width: 340px) {
+  .image-background {
+    background-position: 370px;
   }
 }

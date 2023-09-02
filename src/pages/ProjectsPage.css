@@ -22,7 +22,6 @@
 .projectBox {
   width: calc(50% - 20px);
   display: flex;
-  flex-wrap: wrap;
   box-sizing: border-box;
   flex-direction: row;
   justify-content: space-between;
@@ -33,15 +32,18 @@
   padding: 20px;
 }
 
-.text {
+.projectBox .text {
+  flex-grow: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding-right: 10px;
 }
 
 .projectBox img {
   max-width: 100%;
-  max-height: 200px;
+  max-height: 300px;
   height: auto;
   align-self: center;
   border-radius: 8px;
@@ -49,6 +51,23 @@
 
 .projectBox h2 {
   color: black;
+}
+
+.dev-logos {
+  display: flex;
+  flex-direction: row;
+}
+
+.text .dev-logos img{
+  height: 50px;
+  padding-inline: 10px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media (max-width: 768px) {
@@ -66,9 +85,19 @@
     height: auto;
     align-self: center;
   }
+
+  .text {
+    padding: 0px;
+  }
+
+  .title-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 }
 
-@media (max-width: 1169px) {
+@media (max-width: 1300px) {
   .projectBox {
     width: 100%;
   }  

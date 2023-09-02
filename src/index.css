@@ -15,3 +15,19 @@ body {
   padding-bottom: 20px;
   color: black;
 }
+
+.github-logo {
+  filter: invert(1);
+}
+
+.linkedin-logo {
+  filter: invert(1);
+}
+
+img.github-logo:hover {
+  filter: invert(0);
+}
+
+img.linkedin-logo:hover {
+  filter: invert(0);
+}

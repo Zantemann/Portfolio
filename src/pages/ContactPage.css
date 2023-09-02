@@ -31,6 +31,33 @@
   margin-block: 10px;
 }
 
+.image-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.image-content img {
+  height: 50px;
+}
+
+.image-content .github-logo {
+  filter: invert(0);
+}
+
+.image-content .linkedin-logo {
+  filter: invert(0);
+}
+
+.image-content img.github-logo:hover {
+  filter: invert(1);
+}
+
+.image-content img.linkedin-logo:hover {
+  filter: invert(0.9);
+}
+
 .info-content h4 {
   margin: 0px;
 }

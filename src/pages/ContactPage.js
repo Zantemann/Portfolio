@@ -19,6 +19,14 @@ const Contact = () => {
             <h4>Email:</h4>
             <h4>santeri.ora@tuni.fi</h4>
           </div>
+          <div className='image-content'>
+            <a href={'https://github.com/Zantemann'} target="_blank" rel="noopener noreferrer">
+              <img src={'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'} className='github-logo' />
+            </a>
+            <a href={'https://www.linkedin.com/in/santeriora/'} target="_blank" rel="noopener noreferrer">
+              <img src={'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg'} className='linkedin-logo' />
+            </a>
+          </div>
         </div>
         <div className='contact-form-container'>
           <ContactForm />

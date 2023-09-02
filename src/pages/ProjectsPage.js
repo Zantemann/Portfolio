@@ -18,15 +18,22 @@ const ProjectsPage = ({ projects }) => {
               return (
                 <div className='projectBox' key={element.title}>
                   <div className='text'>
-                    <h2>{element.title}</h2>
+                    <div className='title-container'>
+                      <h2>{element.title}</h2>
+                      <div className='dev-logos'>
+                        {element?.languages?.map((language) => (
+                          <img src={language} key={language} />
+                        ))}
+                      </div>
+                    </div>
                     <p>{element.description}</p>
                     <p>
                       <a href={element.url} target="_blank" rel="noopener noreferrer">
-                        {element.title}
+                        Github
                       </a>
                     </p>
                   </div>
-                  <img src='https://placehold.co/200?text=Photo+Not+Found' alt="Placeholder" />
+                  <img src={element?.image ? element?.image : 'https://placehold.co/300?text=Photo+Not+Found'} alt={element.title} className='project-image'/>
                 </div>
               );
             })}

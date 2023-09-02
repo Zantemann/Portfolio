@@ -34,4 +34,4 @@ const fetchData = async (collectionName) => {
   }
 };
 
-export default  fetchData;
+export default fetchData;

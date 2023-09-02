@@ -35,7 +35,6 @@ const App = () => {
     const updateVisibleSection = () => {
       const currentlyVisibleSection = Object.keys(sectionRefs).find(section => sectionRefs[section].inView);
       if (visibleSection !== currentlyVisibleSection) {
-        console.log(currentlyVisibleSection);
         setVisibleSection(currentlyVisibleSection);
       }
     };

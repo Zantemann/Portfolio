@@ -10,7 +10,7 @@ const HomePage = () => {
       <div className='image-container'>
         <div
           className='image-background'
-          style={{ backgroundImage: 'url(\'/images/homeImage3.jpg\')' }}
+          style={{ backgroundImage: 'url(\'/images/homeImage.jpg\')' }}
         />
         <div className='content'>
           <h1 className='content-header'>
@@ -56,6 +56,9 @@ const HomePage = () => {
         <div className='homepage-logos'>
           <a href={'https://github.com/Zantemann'} target="_blank" rel="noopener noreferrer">
             <img src={'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'} className='github-logo' />
+          </a>
+          <a href={'https://www.linkedin.com/in/santeriora/'} target="_blank" rel="noopener noreferrer">
+            <img src={'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg'} className='linkedin-logo' />
           </a>
         </div>
       </div>

@@ -6,22 +6,9 @@ import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
   const [ showForm, setShowForm ] = useState(true);
-  const [ errorMessage, setErrorMessage ] = useState();
+  const [ errorMessage, setErrorMessage ] = useState(false);
 
-  const sendEmail = (templateParams) => {
-    // eslint-disable-next-line no-undef
-    emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, templateParams, process.env.REACT_APP_PUBLIC_KEY)
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        setErrorMessage('');
-      }, (err) => {
-        console.log('FAILED...', err);
-        setErrorMessage(err);
-      });
-    setShowForm(false);
-  };
-
-  const { handleSubmit, handleChange, values, touched, setTouched, errors, handleBlur } = useFormik({
+  const { handleSubmit, handleChange, values, touched, setTouched, errors, handleBlur, resetForm } = useFormik({
     initialValues: {
       name: '',
       email: '',
@@ -47,6 +34,21 @@ const ContactForm = () => {
     }
     return () => clearTimeout(timeout);
   }, [touched]);
+
+  const sendEmail = (templateParams) => {
+    // eslint-disable-next-line no-undef
+    emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, templateParams, process.env.REACT_APP_PUBLIC_KEY)
+      .then(() => {
+        //console.log('SUCCESS!', response.status, response.text);
+        resetForm();
+        setErrorMessage(false);
+      })
+      .catch(() => {
+        //console.log('FAILED...', err);
+        setErrorMessage(true);
+      });
+    setShowForm(false);
+  };
 
   return (
     <div className='form-box'>
@@ -106,12 +108,15 @@ const ContactForm = () => {
         </form>
       ) : (
         <div className='submit-message'>
-          {errorMessage ? (
-            <h2>Thank you for contacting.</h2>
+          {!errorMessage ? (
+            <div>
+              <h2>Thank you for reaching out!</h2>
+              <p>Your message has been successfully received.</p>
+              <p>I will get back to you as soon as possible.</p>
+            </div>
           ) : (
             <div>
               <h2>Sending contact form to email failed</h2>
-              <h3>{errorMessage}</h3>
             </div>
           )}
           <button className='show-button' onClick={() => setShowForm(true)}>Show Contact Form Again</button>
